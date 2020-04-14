@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <span id="mytoolbar">
+        Цвет пера: <input id="colorpicker" type="color">
+        Цвет фона: <input id="backpicker" value="#ffffff" type="color">
+        Радиус пера: <input type="number" min="1" max="40" id="radiuspicker">
+        <button onclick="ctx.clearRect(0, 0, innerWidth, innerHeight)">Очистить поле</button>
+        <button onclick="localStorage.clear();location.reload();return">Стереть данные</button>
+    </span>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script src="js/main.js"></script>
+</body>
+</html>
