@@ -2,7 +2,6 @@ const ctx = canvas.getContext("2d")
 let color = colorpicker.value = localStorage.color || "#000000"
 let x, y
 let radius = radiuspicker.value = localStorage.radius || 5
-document.body.style.background = backpicker.value = localStorage.bg || "#ffffff"
 
 colorpicker.onchange = () => localStorage.color = color = colorpicker.value
 radiuspicker.onchange = () => localStorage.radius = radius = radiuspicker.value
@@ -16,6 +15,10 @@ backpicker.onchange = () => {
 onload = onresize = function () {
   canvas.width = innerWidth
   canvas.height = innerHeight - 4
+
+  ctx.fillStyle = backpicker.value = localStorage.bg || '#fff'
+  ctx.clearRect(0, 0, innerWidth, innerHeight)
+  ctx.fillRect(0, 0, innerWidth, innerHeight)
 
   mytoolbar.style.left = innerWidth / 2 - mytoolbar.offsetWidth / 2 + "px"
 }
@@ -76,6 +79,7 @@ onkeydown = function (event) {
   } else if (event.key == "Enter") {
     ctx.fillStyle = localStorage.bg || '#fff'
     ctx.clearRect(0, 0, innerWidth, innerHeight)
+    ctx.fillRect(0, 0, innerWidth, innerHeight)
 
     if (event.ctrlKey) {
       localStorage.clear()
