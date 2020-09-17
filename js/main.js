@@ -52,7 +52,11 @@ canvas.onmousedown = function () {
   }
 }
 
-clearFieldBtn.onclick = () => ctx.clearRect(0, 0, innerWidth, innerHeight)
+clearFieldBtn.onclick = () => {
+  ctx.fillStyle = backpicker.value = localStorage.bg || '#fff'
+  ctx.clearRect(0, 0, innerWidth, innerHeight)
+  ctx.fillRect(0, 0, innerWidth, innerHeight)
+}
 
 clearDataBtn.onclick = () => {
   localStorage.clear()
